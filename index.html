@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Image Dithering Editor</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="container-app">
+            <div id="image-upload-div">
+                <input type="file" id="uploadImageInput" onchange="uploadImage(event)"/>
+                <button onclick="document.getElementById('uploadImageInput').click()">Upload Image</button>
+            </div>
+            <!-- Filter selection buttons -->
+            <div id="filter-selection-div">
+                <button onclick="selectFilter(DEFAULT)">Original</button>
+                <button onclick="selectFilter(GREYSCALE)">Greyscale</button>
+                <button onclick="selectFilter(AVERAGE_DITHERING)">Average Dithering</button>
+                <button onclick="selectFilter(RANDOM_DITHERING)">Random Dithering</button>
+                <button onclick="selectFilter(BAYER_DITHERING)">Bayer Dithering</button>
+                <button onclick="selectFilter(FLOYD_STEINBERG_DITHERING)">Floyd-Steinberg Dithering</button>
+                <button onclick="selectFilter(JARVIS_JUDICE_NINKE_DITHERING)">Jarvis-Judice-Ninke Dithering</button>
+            </div>
+            <div id="image-download-div">
+                <button onclick="downloadImage()">Download Image</button>
+            </div>
+            <div id="filter-settings-div">
+                <h3>Filter Settings</h3>
+                <div id="color-div">
+                    <div class="color-settings-div">
+                        <span>Dark Color</span><br>
+                        <input type="color" id="dark-color-input" value="#000000" oninput="updateDarkColor()">
+                    </div>
+                    <div class="color-settings-div">
+                        <span>Light Color</span><br>
+                        <input type="color" id="light-color-input" value="#ffffff" oninput="updateLightColor()">
+                    </div>
+                </div>
+                <div id="average-dithering-threshold-div" style="display: none;">
+                    <span>Threshold</span><br>
+                    <input type="range" id="average-dithering-threshold-input" min="0" max="256" value="128" oninput="updateAverageDitheringThreshold()">
+                </div>
+                <div id="ordered-dithering-map-size-settings-div" style="display: none;">
+                    <span>Map Size</span><br>
+                    <input type="range" id="ordered-dithering-map-input" min="1" max="6" value="3" oninput="updateOrderedDitheringMap()">
+                </div>
+            </div>
+        </div>
+
+        <div id="canvas-container">
+            <canvas id="sourceCanvas" height="0"></canvas>
+            <canvas id="previewCanvas" height="0"></canvas>
+        </div>
+
+        <img id="sourceImage" crossorigin="anonymous">
+
+        <script src="script.js"></script>
+    </body>
+</html>

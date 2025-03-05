@@ -1,0 +1,111 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+  
+* {
+    box-sizing: border-box;
+}
+
+#container-app {
+    float: left;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+}
+
+#image-upload-div {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+#filter-selection-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5%;
+    row-gap: 9px;
+    margin: 5%;
+    justify-content: center;
+}
+
+#image-download-div {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+#filter-settings-div {
+    margin: 5%;
+    border-top: 2px solid gray;
+    text-align: center;
+    justify-content: center;
+}
+
+button {
+    margin: auto;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: medium;
+    padding: 5px;
+    border: none;
+}
+button:hover {
+    margin: auto;
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-size: medium;
+    padding: 2px;
+    border: 3px solid black;
+}
+
+#color-div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5%;
+}
+
+.color-settings-div {
+    text-align: center;
+}
+
+input[type="color"], input[type="range"] {
+    margin: auto;
+}
+
+#canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background-color: black;
+}
+
+#uploadImageInput {
+    display: none;
+}
+
+#sourceImage {
+    display: none;
+}
+
+#sourceCanvas {
+    display: none;
+}
+
+#previewCanvas {
+    position: absolute;
+    max-height: 100%;
+    max-width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
